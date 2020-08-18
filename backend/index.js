@@ -1,18 +1,21 @@
 const config = require('./config');
 const logger = require('./util/logger');
 const express = require('express');
+const { requestLogger } = require('./util/middleware')
 const app = express();
 const cors = require('cors');
 
 require('./config/database');
 
-process.on('unhandledRejection', (e) => {
+process.on('unhandledRejection', e => {
 	logger.error(e);
 	process.exit(1);
 });
 
 app.use(cors());
 app.use(express.json());
+
+app.use(requestLogger);
 
 app.use(express.static('build'));
 
