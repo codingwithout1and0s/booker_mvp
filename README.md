@@ -42,6 +42,15 @@ To build the frontend, commit, and push to Heroku
 npm run deploy:full
 ```
 
+To check your code style
+```
+npm run lint
+```
+and to fix all your errors automatically
+```
+npm run lint --fix
+```
+
 ## Initializing your Heroku app
 If you haven't already, [Install Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli), and make a Heroku account
 
