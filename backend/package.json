@@ -14,7 +14,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
-    "build:ui": "rm -rf build && cd ../frontend && npx react-scripts build && cp -r build ../backend"
+    "build:ui": "npm install && rm -rf build && cd ../frontend && npm install && npx react-scripts build && cp -r build ../backend"
   },
   "author": "",
   "license": "ISC"
