@@ -11,9 +11,8 @@ app.use(express.json());
 app.use('/api/auth', require('./routes/api/auth'));
 app.use('/api/users', require('./routes/api/users'));
 
-
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+    res.sendFile(path.join(__dirname, "build", "index.html"));
 });
 
 const port = process.env.PORT || 3001;
