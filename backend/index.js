@@ -5,7 +5,7 @@ const app = express();
 require('dotenv').config();
 require('./config/database');
 
-app.use(express.static(path.join(__dirname, 'client', 'build')));
+app.use(express.static(path.join(__dirname, 'build')));
 app.use(express.json());
 
 app.use('/api/auth', require('./routes/api/auth'));
