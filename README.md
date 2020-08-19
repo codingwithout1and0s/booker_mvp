@@ -97,7 +97,7 @@ npm run lint --fix
 ```
 
 ### Setting up Environment Variables
-Go to [.env.example](./backend/.env.example)
+Go to [.env.example](./backend/.env.example), copy it, and rename the copy to `.env`
 and fill out the .env variables
 ```
 DB_URI="<insert your URI here>"
