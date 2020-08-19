@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
+const logger = require('./../util/logger');
 
-mongoose.connect(process.env.DATABASE_URI, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true });
-const db = mongoose.connection;
-db.on('connected', () => {
-    console.log(`mongoose connected to database at ${db.host}:${db.port}`);
-});
+mongoose.connect(`${process.env.DB_URI}&w=majority`, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
+	.then(() => logger.info(`Database Connection Established ${mongoose.connection.host}:${mongoose.connection.port}`))
+	.catch(e => logger.error(`Error while connecting to Database: ${e}`));
