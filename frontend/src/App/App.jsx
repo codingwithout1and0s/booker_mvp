@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import authService from '../services/authService';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import authService from '../utils/authService';
 
 const PrivateRoute = ({ cb, ...rest }) => (
   <Route {...rest}
@@ -17,12 +17,12 @@ function App() {
 
   const handleLogin = () => {
     let user = authService.getUser() || undefined;
-    this.setState({ user });
+    this.setUser(user);
   };
 
   const handleLogout = () => {
     authService.logout()
-    this.setState({ user: undefined });
+    this.setUser(user);
   };
 
   return (
