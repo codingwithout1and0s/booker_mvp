@@ -1,9 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import { Navbar } from "react-bootstrap";
+import "./App.css";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App container">
       
       <Router>
         <Switch>
@@ -24,6 +27,14 @@ function App() {
         </Switch>
       </Router>
 
+      <Navbar fluid collapseOnSelect>
+        <Navbar.Header>
+          <Navbar.Brand>
+            <Link to="/">Scratch</Link>
+          </Navbar.Brand>
+          <Navbar.Toggle />
+        </Navbar.Header>
+      </Navbar>
     </div>
   );
 }

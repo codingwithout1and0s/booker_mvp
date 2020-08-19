@@ -1,7 +1,7 @@
 const config = require('./config');
 const logger = require('./util/logger');
 const express = require('express');
-const { requestLogger } = require('./util/middleware')
+const { requestLogger } = require('./util/middleware');
 const app = express();
 const cors = require('cors');
 
