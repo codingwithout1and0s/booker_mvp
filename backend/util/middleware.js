@@ -7,6 +7,17 @@ const requestLogger = (req, res, next) => {
 	next();
 };
 
+const checkAuthToken = (req, res, next) => {
+	try {
+		const authorization = req.get('authorization');
+		const [bearer, token] = authorization.split(' ');
+		if (!bearer.match(/^bearer$/i)) throw new Error();
+		req.token = jwt.verify(token, config.JWT_SECRET);
+		next();
+	} catch (e) {
+		throw new jwt.JsonWebTokenError('Invalid Token');
+	}
+};
 
 const errorHandler = (err, req, res) => {
 	if (err.name === 'JsonWebTokenError') return res.status(401).json({ error: 'Invalid JWT'});
